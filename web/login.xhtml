@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Agenda de Contatos</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h2>Entre com o login</h2>
+            <h:messages globalOnly="true"/>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Usuário: " for="usuario"/>
+                <h:inputText id="usuario" value="#{loginBean.usuario}" required="true" label="Usuário"/>
+
+                <h:outputLabel value="Senha: " for="senha"/>
+                <h:inputSecret id="senha" value="#{loginBean.senha}"/>
+
+                <h:commandButton value="Entrar" action="#{loginBean.login}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,33 @@
+<ui:composition template="template.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="conteudo">
+        <h:form>
+            <h:messages/>
+
+            <h:inputHidden id="id" value="#{cadastroContatoBean.contato.id}"/>
+
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Nome: " for="nome"/>
+                <h:inputText id="nome" value="#{cadastroContatoBean.contato.nome}" label="Nome" required="true"/>
+
+                <h:outputLabel value="Email: " for="email"/>
+                <h:inputText id="email" value="#{cadastroContatoBean.contato.email}" label="Email" required="true" validatorMessage="O email é inválido" valueChangeListener="#{cadastroContatoBean.emailChanged}" onchange="submit();">
+                    <f:validateRegex pattern="[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}" />
+                </h:inputText>
+
+                <h:outputLabel value="Data de Nascimento: " for="dataNascimento"/>
+                <h:inputText id="dataNascimento" value="#{cadastroContatoBean.contato.dataNascimento}" label="Data de Nascimento" required="true">
+                    <f:converter converterId="dateCalendarConverter"/>
+                </h:inputText>
+
+                <h:outputLabel value="Endereço: " for="endereco"/>
+                <h:inputText id="endereco" label="Endereço" value="#{cadastroContatoBean.contato.endereco}"/>                
+
+                <h:commandButton value="Enviar" action="#{cadastroContatoBean.grava}"/>
+                <h:button value="Lista de Contatos" outcome="lista-contatos"/>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>

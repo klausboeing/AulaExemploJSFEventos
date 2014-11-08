@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Agenda de Contatos</title>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <h1>Agenda de Contatos</h1>
+            <h:form>
+                <p>Usuário logado: #{loginBean.usuario}</p> <h:commandLink value="Logout" action="#{loginBean.logout}"/>
+             </h:form>   
+            <hr/>
+        </div>
+        
+        <ui:insert name="conteudo">Conteúdo</ui:insert>
+        
+        <div id="footer">
+            <hr/>
+            <h3>Todos os diretiros reservados</h3>
+        </div>
+    </h:body>
+</html>
